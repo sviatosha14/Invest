@@ -15,3 +15,13 @@ if response.status_code == 200:
 
 if response.status_code != 200:
     print(response.parse_error())  # tinvest.Error
+
+response = api.sandbox_currencies_balance_post(tinvest.SandboxSetCurrencyBalanceRequest(balance = 10.5, currency = "USD"))
+
+if response.status_code == 200:
+    print(response.parse_json())  # tinvest.PortfolioResponse
+
+# Handle error
+
+if response.status_code != 200:
+    print(response.parse_error())  # tinvest.Error
